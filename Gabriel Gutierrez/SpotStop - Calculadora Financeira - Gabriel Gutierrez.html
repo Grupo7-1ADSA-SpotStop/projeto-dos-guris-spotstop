@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+
+<style>
+ body {
+    background-color: black;
+ }
+
+ #divPerca {
+    color: white;
+ }
+
+ #span1 {
+    color: white;
+ }
+
+ #span2 {
+    color: white;
+ }
+
+ #span3 {
+    color: white;
+ }
+
+</style>
+
+<body>
+    
+<span id="span1">Quantidade de Pessoas em Dia de Pico:</span> <input id="qtdPessoasFluxo"> <br>
+
+<span id="span2">Média de Gasto Por Pessoa:</span> <input id="mediaGasto"> <br>
+
+
+<button onclick="calculoFinanceiro()">
+ Fluxo Monetário Perdido Por Dia De Pico:
+</button>
+
+<div id="divPerca"></div>
+
+</body>
+</html>
+
+<script>
+
+function calculoFinanceiro() {
+
+var fluxoPessoas = Number(qtdPessoasFluxo.value);
+var mediaGastos = Number(mediaGasto.value);
+var percentualDesistencia = fluxoPessoas * 0.15;
+var receitaPerdida = mediaGastos * fluxoPessoas;
+var receitaPerdidaAno = receitaPerdida * 160
+// a receita perdida por ano equivale á receita perdida multiplicada pelos prováveis dias de pico no ano.
+
+divPerca.innerHTML = `<b>Sua perda de receita no dia remete á</b> <i style = "color:red">R$${receitaPerdida}<i>, e no ano R$${receitaPerdidaAno}.`
+
+}
+
+</script>
