@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simule Aqui</title>
+</head>
+<body style="background-color: #fdd58d">
+    <div style="text-align: center">
+        <img src="imagens/SpotStop_Logo1.png" width="700px" height="200px">
+    </div>
+    <div style="margin: 50px; text-align: center">
+        <h1>Faça sua simulação aqui</h1><br><br>
+        <h3>Quantidade de pessoas no local por dia de pico</h3><input id="input_pessoas"><br><br>
+        <h3>Gasto médio por pessoa</h3><input id="input_gasto"><br><br>
+        <h3>Porcentagem média de evasão</h3><input id="input_evasao"><br><br><br><br>
+        <button style="background-color: #ffa300" onclick="calcular()"><h2>SIMULAR</h2></button>
+    </div>
+    <br><br>
+    <p id="p_exibir"></p>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var pessoas = Number(input_pessoas.value)
+        var gasto = Number(input_gasto.value)
+        var evasao = Number(input_evasao.value)
+        var total = pessoas * gasto
+        var total_evasao = total * (evasao / 100)
+        var perda_ano = total_evasao * 160
+
+        p_exibir.innerHTML = `<h1 style="text-align: center">Com uma média de evasão de ${evasao}%, você está perdendo em média R$${total_evasao} por dia de pico.
+                                <br><br>Por ano este valor pode chegar a R$${perda_ano}.</h1>`
+    }
+</script>
