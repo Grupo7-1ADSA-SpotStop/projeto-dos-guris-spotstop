@@ -1,0 +1,12 @@
+fluxo de carros no estacionamento por dia de pico
+quantidade de vagas no estacionamento
+quantidade de tickets validados
+fluxo de carros - quantidaqdes de tickets validadops = taxa de evasão
+taxa de evasao
+
+
+
+
+Com uma média de evasão de ${evasao} carros,
+                                 você está deixando de ganhar em média R$${perda} por dia de pico.
+                                <br><br>Por ano este valor pode chegar a R$${perda_ano}. E com a utilização do nosso projeto você pode faturar até R$${solucao} a mais por ano.

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simule Aqui</title>
+</head>
+<body style="background-color: #fdd58d">
+    <div style="text-align: center">
+        <img src="imagens/SpotStop_Logo1.png" width="30%" height="30%">
+    </div>
+    <div style="padding: 10px; text-align: center">
+        <h1>Faça sua simulação aqui</h1><br><br>
+        <h3>fluxo de carros no estacionamento por dia de pico</h3><input id="input_fluxo"><br><br>
+        <h3>quantidade de vagas no estacionamento</h3><input id="input_vagas"><br><br>
+        <h3>quantidade de tickets validados</h3><input id="input_tickets"><br><br><br><br>
+        <h3>Gasto médio por pessoa</h3><input id="input_gasto"><br><br>
+        <button style="background-color: #ffa300" onclick="calcular()"><h2>SIMULAR</h2></button>
+    </div>
+    <br><br>
+    <p id="p_exibir"></p>
+</body>
+</html>
+
+<script>
+    function calcular() {
+
+        var fluxo = Number(input_fluxo.value)
+        var gasto = Number(input_gasto.value)
+        var vagas = Number(input_vagas.value)
+        var tickets = Number(input_tickets.value)
+        var evasao = fluxo - tickets
+        var perda = evasao * tickets
+        var perda_ano = perda * 160
+        var solucao = perda_ano * 0.7
+        
+        
+        
+        p_exibir.innerHTML = `<h2>Considerando que nossa solução resolverá até
+        70% da sua evasão: <br></h2>
+        <h1>Sem a solução SpotStop: <br> </h1>
+        <h2>Sua evasão atualmente (por dia): ${evasao} carros</h3> 
+        <h2>Perda por evasão: R$${perda}</h2> `
+    }
+</script>
