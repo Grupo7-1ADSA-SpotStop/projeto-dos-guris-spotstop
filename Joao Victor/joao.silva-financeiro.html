@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Quantidade de pessoas no local em dias de picos
+        <input id="input_pessoas">
+<br><br>
+    Gasto médio por pessoa
+        <input id="input_gasto">
+<br><br>
+<button onclick="analisar()">
+    Simular
+</button> 
+<br><br>
+
+<div id="texto_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar(){
+
+        var pessoas = Number(input_pessoas.value)
+        var gastos = Number(input_gasto.value)
+
+        var media  = (pessoas * gastos) * 0.15
+        var media_ano = media * 160
+
+        texto_resultado.innerHTML = 
+        `Com uma média de evasão de 15%, Você está perdendo em média R$${media} por dia.
+        Por ano esse valor pode chegar a R$${media_ano}`
+
+    }
+</script>
