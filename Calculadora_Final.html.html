@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simule Aqui</title>
+</head>
+<body style="background-color: #fdd58d">
+    <div style="text-align: center">
+        <img src="/SpotStop_Logo1.png" width="30%" height="30%">
+    </div>
+    <div style="padding: 10px; text-align: center">
+        <h1>Faça sua simulação aqui</h1><br><br>
+        <h3>Fluxo de carros no estacionamento em um dia de pico</h3><input id="input_fluxo"><br><br>
+        <h3>Quantidade de tickets validados no estacionamento no mesmo dia</h3><input id="input_tickets"><br><br><br><br>
+        <h3>Gasto médio por pessoa (em uma ida ao seu estabelecimento)</h3><input id="input_gasto"><br><br>
+        <button style="background-color: #ffa300" onclick="calcular()"><h2>SIMULAR</h2></button>
+    </div>
+    <br><br>
+    <p id="p_exibir"></p>
+</body>
+</html>
+
+<script>
+    function calcular() {
+
+        var fluxo_carro = Number(input_fluxo.value)
+        var gasto_pessoa = Number(input_gasto.value)
+        var tickets = Number(input_tickets.value)
+        var evasao_dia = fluxo_carro - tickets
+        var perdaDinheiro = evasao_dia * gasto_pessoa * 2
+        var perda_ano = perdaDinheiro * 160
+        var solucao_carros = evasao_dia / 100 * 30
+        var lucro_dia = evasao_dia * 0.7 * gasto_pessoa * 2
+        var lucro_ano = lucro_dia * 160
+        
+        
+        
+        
+        p_exibir.innerHTML = `<h2> A nossa solução resolverá até
+        70% do seu problema! <br><br></h2>
+
+        <h1>Sem a solução SpotStop: <br> </h1>
+
+        <ul>
+            <li><h2> Sua evasão atualmente (por dia): ${evasao_dia} carros</h2></li>
+
+            <li><h2> Considerando dois consumidores por carro, sua perda por evasão é: 
+            R$${perdaDinheiro} por dia de pico</h2></li>
+
+            <li><h2> Considerando que no ano temos em média 160 dias de pico. Atualmente,
+            seu estabelecimento está deixando de ganhar R$${perda_ano} por ano</h2></li> </ul> <br> 
+
+        <h1>Com a solução SpotStop:</h1>
+
+        <ul>
+            <li><h2> Sua evasão será de até: ${solucao_carros} carros</h2></li>
+
+            <li><h2> Deixará de perder: R$${lucro_dia} por dia</h2></li>
+        
+            <li><h2> Também deixará de perder: R$${lucro_ano} por ano</h2></li></ul>`
+    }
+</script>
