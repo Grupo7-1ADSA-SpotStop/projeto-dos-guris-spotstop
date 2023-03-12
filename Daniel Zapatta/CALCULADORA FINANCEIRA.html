@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira</title>
+</head>
+<body>
+    Fluxo de pessoas em dia de pico: <input id = "input_qtdfluxopessoas"> <br>
+    Gasto médio por pessoa: <input id = "input_gastomediopessoa"> <br>
+    Percentual de evasão do estacionamento: <input id = "input_evasao"> <br> 
+
+    <button onclick = "calculo()">Receita perdida por dia de pico!</button> <br>
+
+    <div id = "div_evasao"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calculo() {
+        var fluxop = Number(input_qtdfluxopessoas.value);
+        var mediag = Number(input_gastomediopessoa.value);
+        var perc = Number(input_evasao.value);
+        var perc2 = perc/100;
+        var calc = (mediag * fluxop)*perc2;
+
+        div_evasao.innerHTML = `<b>A tua perca de receita em apenas um dia é de <i style="color:red">R$${calc}!</b>`
+    }
+// div_evasao.innerHTML = `<b>A tua perca de receita em apenas um dia é de <i style="color:red">R$${calc}!<i></b>`
+</script>
